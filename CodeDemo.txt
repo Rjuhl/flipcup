@@ -1,0 +1,63 @@
+# Imports the library
+import FlipCup as fp
+
+# In this example lets pretend we are looking at a game of Flipcup where
+# one player flips successfully 5 times a minute and the other flips
+# 7 times successfully in a minute. Addtionally, there are 11 total
+# checkpoints in this setup.
+
+# Below is an example of fp.wc() which takes in 3 arguments (number of
+# check points, rate of player 1, and rate of player 2) and returns the
+# exact chance that player 1 wins the game
+
+Input:
+>>> fp.wc(11, 5, 7)
+Output:
+>>> 0.15678306241220163
+
+
+# fp.g3D() takes 3 arguments. The first is an array with two whole numbers
+# which will be the values for the x and y axes. The second argument
+# specifies what will be constant dimension (0 means that teh number of
+# checkpoints will be held constant, 1 means the rate of player 1 is held
+# constant, and 2 means the rate of  player 2 is held constant). Finally,
+# the last argument specifies the value held constant (either c = const,
+# r1 = const, or r2 = const). An example of what it would look like is
+# below
+
+Input:
+>>> fp.g3D([100, 100], 0, c=11)
+Output:
+>>> The Graph (Not displayed here)
+
+
+# fp.g2D() takes 3 arguments and returns a graph. The first is the rate
+# of player 1. The second is the rate of player 2. The final parameter
+# is the range of checkpoints to graph. An example is below
+
+Input:
+>>> fp.g2D(5, 7, 100)
+Output:
+>>> The Graph (Not displayed here)
+
+
+# fp.et() takes 3 arguments (number of check points, rate of player 1,
+# and rate of player 2) and returns the expected time of the game in
+# minutes.
+
+Input:
+>>> fp.et(11, 5, 7)
+Output:
+>>> 1.716084687938993
+
+# fp.sim() takes in the same arguments as fp.wc() and returns an
+# estimate for the expected time and chance of player 1 winning.
+# It has an optional additional parameters times which can be set
+# to any whole number. It tells the code the number of simulation
+# to run to get its values from
+
+Input:
+>>> fp.sim(11, 5, 7, times=10000)
+Output:
+>>> (1.703716918416308, 0.1572)
+
